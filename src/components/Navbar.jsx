@@ -15,16 +15,16 @@ const Navbar = () => {
   // };
 
   return (
-    <header className='relative z-50'>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition duration-300 ease-in-out text-white`}>
       <nav className='container mx-auto flex justify-between items-center py-5 px-4'>
         <Link to="/" className='text-1.5xl font-bold'>A.H Furniture</Link >
 
         {/* Desktop Menu Item  */}
         <div className='flex-col md:flex-row items-center md:space-x-8 gap-8 hidden md:flex'>
-          <NavLink to="/" className={({isActive}) => isActive ? "text-red-600 font-medium underline" : "hover:text-red-500"}>Home</NavLink>
-          <NavLink to="/shop" className={({isActive}) => isActive ? "text-red-600 font-medium underline" : "hover:text-red-500"}>Shop</NavLink>
-          <NavLink to="/aboutUs" className={({isActive}) => isActive ? "text-red-600 font-medium underline" : "hover:text-red-500"}>AboutUs</NavLink>
-          <NavLink to="/contact" className={({isActive}) => isActive ? "text-red-600 font-medium underline" : "hover:text-red-500"}>Contact</NavLink>
+          <NavLink to="/" className={({isActive}) => isActive ? "text-yellow-300 font-medium underline" : "hover:text-yellow-300"}>Home</NavLink>
+          <NavLink to="/shop" className={({isActive}) => isActive ? "text-yellow-300 font-medium underline" : "hover:text-yellow-300"}>Shop</NavLink>
+          <NavLink to="/aboutUs" className={({isActive}) => isActive ? "text-yellow-300 font-medium underline" : "hover:text-yellow-300"}>AboutUs</NavLink>
+          <NavLink to="/contact" className={({isActive}) => isActive ? "text-yellow-300 font-medium underline" : "hover:text-yellow-300"}>Contact</NavLink>
         </div>
 
         {/* Hamburger menu */}
