@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaBagShopping, FaBars } from "react-icons/fa6";
 import { FaTimes } from "react-icons/fa";
 import { Link, NavLink } from 'react-router-dom';
+// import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); //hamburger menu
@@ -9,7 +10,7 @@ const Navbar = () => {
   const toggleMenu = ()=> {    //hamburger menu
     setIsMenuOpen(prev => !prev)
   }
-  // const closeMenu = () => {
+  // const closeMenu = () => { 
   //   setIsMenuOpen(false);
   // };
 
