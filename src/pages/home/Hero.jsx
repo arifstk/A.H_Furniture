@@ -20,7 +20,7 @@ const Hero = () => {
       </div>
 
         {/* bottom blur effect  */}
-      <div></div>
+      <div className='absolute inset-x-0 bottom-0 h-3/4 -mb-2 bg-gradient-to-t from-white via-transparent to-transparent blur-sm' />
     </section>
   );
 };

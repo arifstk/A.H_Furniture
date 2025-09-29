@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition duration-300 ease-in-out text-white`}>
-      <nav className='container mx-auto flex justify-between items-center py-5 px-4'>
+      <nav className='container max-w-screen-2xl mx-auto flex justify-between items-center py-5 px-4'>
         <Link to="/" className='text-1.5xl font-bold'>A.H Furniture</Link >
 
         {/* Desktop Menu Item  */}
