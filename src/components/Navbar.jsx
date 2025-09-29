@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaBagShopping, FaBars } from "react-icons/fa6";
 import { FaTimes } from "react-icons/fa";
 import { Link, NavLink } from 'react-router-dom';
@@ -6,25 +6,39 @@ import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); //hamburger menu
+  const [isScrolled, setIsScrolled] = useState(false);
+
 
   const toggleMenu = ()=> {    //hamburger menu
     setIsMenuOpen(prev => !prev)
   }
-  // const closeMenu = () => { 
-  //   setIsMenuOpen(false);
-  // };
+  // when scroll apply bg-color to navbar
+  useEffect (()=> {
+    const handleScroll = ()=> {
+      if(window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    return ()=> {
+      window.addEventListener('scroll', handleScroll);
+    }
+  }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition duration-300 ease-in-out text-white`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition duration-300 ease-in-out ${isScrolled ? "bg-white" :"bg-transparent text-white"} `}>
       <nav className='container max-w-screen-2xl mx-auto flex justify-between items-center py-5 px-4'>
         <Link to="/" className='text-1.5xl font-bold'>A.H Furniture</Link >
 
         {/* Desktop Menu Item  */}
         <div className='flex-col md:flex-row items-center md:space-x-8 gap-8 hidden md:flex'>
-          <NavLink to="/" className={({isActive}) => isActive ? "text-yellow-300 font-medium underline" : "hover:text-yellow-300"}>Home</NavLink>
-          <NavLink to="/shop" className={({isActive}) => isActive ? "text-yellow-300 font-medium underline" : "hover:text-yellow-300"}>Shop</NavLink>
-          <NavLink to="/aboutUs" className={({isActive}) => isActive ? "text-yellow-300 font-medium underline" : "hover:text-yellow-300"}>AboutUs</NavLink>
-          <NavLink to="/contact" className={({isActive}) => isActive ? "text-yellow-300 font-medium underline" : "hover:text-yellow-300"}>Contact</NavLink>
+          <NavLink to="/" className={({isActive}) => isActive ? "text-red-400 font-medium underline" : "hover:text-red-400"}>Home</NavLink>
+          <NavLink to="/shop" className={({isActive}) => isActive ? "text-red-400 font-medium underline" : "hover:text-red-400"}>Shop</NavLink>
+          <NavLink to="/aboutUs" className={({isActive}) => isActive ? "text-red-400 font-medium underline" : "hover:text-red-400"}>AboutUs</NavLink>
+          <NavLink to="/contact" className={({isActive}) => isActive ? "text-red-400 font-medium underline" : "hover:text-red-400"}>Contact</NavLink>
         </div>
 
         {/* Hamburger menu */}
@@ -47,10 +61,10 @@ const Navbar = () => {
     
         {/* Wrap all links in one clickable container */}
         <div onClick={toggleMenu} className="flex flex-col items-center gap-8">
-          <NavLink to="/" className={({ isActive }) => isActive ? "text-yellow-300 font-medium underline" : "hover:text-yellow-300"}>Home</NavLink>
-          <NavLink to="/shop" className={({ isActive }) => isActive ? "text-yellow-300 font-medium underline" : "hover:text-yellow-300"}>Shop</NavLink>
-          <NavLink to="/aboutUs" className={({ isActive }) => isActive ? "text-yellow-300 font-medium underline" : "hover:text-yellow-300"}>AboutUs</NavLink>
-          <NavLink to="/contact" className={({ isActive }) => isActive ? "text-yellow-300 font-medium underline" : "hover:text-yellow-300"}>Contact</NavLink>
+          <NavLink to="/" className={({ isActive }) => isActive ? "text-red-400 font-medium underline" : "hover:text-yellow-300"}>Home</NavLink>
+          <NavLink to="/shop" className={({ isActive }) => isActive ? "text-red-400 font-medium underline" : "hover:text-yellow-300"}>Shop</NavLink>
+          <NavLink to="/aboutUs" className={({ isActive }) => isActive ? "text-red-400 font-medium underline" : "hover:text-yellow-300"}>AboutUs</NavLink>
+          <NavLink to="/contact" className={({ isActive }) => isActive ? "text-red-400 font-medium underline" : "hover:text-yellow-300"}>Contact</NavLink>
         </div>
       </div>
     </header>
