@@ -1,5 +1,6 @@
 import React from 'react';
 import bannerImg from '../../assets/banner1.jpg';
+import { FaSearch } from 'react-icons/fa';
 
 const Hero = () => {
   return (
@@ -9,7 +10,17 @@ const Hero = () => {
         <h1 className='text-3xl lg:text-6xl font-medium lg:leading-tight leading-snug'>Make Your Interior More Minimalistic & Modern</h1>
         <p className='md:text-2xl font-normal'>Turn your room with panto into a lot more minimalist and modern with ease and speed</p>
 
+        {/* Search field  */}
+        <div className='relative inline-block z-30'>
+          <input type="text" placeholder='Search furniture' className='w-full md:w-80 px-6 py-2 bg-black/50 rounded-full border-gray-300 focus:outline-none' />
+          <div className='absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer hover:text-yellow-300'>
+            <FaSearch />
+          </div>
+        </div>
       </div>
+
+        {/* bottom blur effect  */}
+      <div></div>
     </section>
   );
 };

@@ -40,17 +40,17 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile Menu Item  */}
-      <div className={`fixed inset-0 flex flex-col items-center justify-center gap-8 text-lg md:hidden text-white bg-black bg-opacity-80 transition-all duration-300 ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} md:hidden`}>
+      <div className={`fixed inset-0 flex flex-col items-center justify-center gap-8 text-lg md:hidden text-white bg-black/85 transition-all duration-300 ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} md:hidden`}>
         <div onClick={toggleMenu} className="absolute top-5 right-5 text-2xl cursor-pointer">
-          <FaTimes />
+          <FaTimes /> 
         </div>
     
         {/* Wrap all links in one clickable container */}
         <div onClick={toggleMenu} className="flex flex-col items-center gap-8">
-          <NavLink to="/" className={({ isActive }) => isActive ? "text-red-600 font-medium underline" : "hover:text-red-500"}>Home</NavLink>
-          <NavLink to="/shop" className={({ isActive }) => isActive ? "text-red-600 font-medium underline" : "hover:text-red-500"}>Shop</NavLink>
-          <NavLink to="/aboutUs" className={({ isActive }) => isActive ? "text-red-600 font-medium underline" : "hover:text-red-500"}>AboutUs</NavLink>
-          <NavLink to="/contact" className={({ isActive }) => isActive ? "text-red-600 font-medium underline" : "hover:text-red-500"}>Contact</NavLink>
+          <NavLink to="/" className={({ isActive }) => isActive ? "text-yellow-300 font-medium underline" : "hover:text-yellow-300"}>Home</NavLink>
+          <NavLink to="/shop" className={({ isActive }) => isActive ? "text-yellow-300 font-medium underline" : "hover:text-yellow-300"}>Shop</NavLink>
+          <NavLink to="/aboutUs" className={({ isActive }) => isActive ? "text-yellow-300 font-medium underline" : "hover:text-yellow-300"}>AboutUs</NavLink>
+          <NavLink to="/contact" className={({ isActive }) => isActive ? "text-yellow-300 font-medium underline" : "hover:text-yellow-300"}>Contact</NavLink>
         </div>
       </div>
     </header>
