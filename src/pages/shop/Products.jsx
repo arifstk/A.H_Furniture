@@ -11,7 +11,7 @@ const Products = ({headline}) => {
         <h2 className='text-4xl font-bold text-center my-8'>{headline}</h2>
 
         {/* Category Tabs */}
-        <div className='bg-[#EEEEEE] max-w-md mx-auto sm:rounded-full md:p-2.5 py-5 mb-16'>
+        <div className='bg-[#EEEEEE] max-w-md mx-auto sm:rounded-full md:p-1 py-1 mb-16'>
           <div className='flex flex-col justify-center sm:flex-row items-center md:justify-between'>
             {
               categories.map((category) =>(
