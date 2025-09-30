@@ -12,8 +12,8 @@ const Hero = () => {
 
         {/* Search field  */}
         <div className='relative inline-block z-30'>
-          <input type="text" placeholder='Search furniture' className='w-full md:w-80 px-6 py-2 bg-black/50 rounded-full border-gray-300 focus:outline-none' />
-          <div className='absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer hover:text-yellow-300'>
+          <input type="text" placeholder='Search furniture' className='w-full md:w-80 px-5 py-2.5 bg-black/50 rounded-full border-gray-300 focus:outline-none' />
+          <div className='absolute right-2.5 top-1/2 transform -translate-y-1/2 cursor-pointer p-2 rounded-full bg-black hover:text-yellow-300'>
             <FaSearch />
           </div>
         </div>

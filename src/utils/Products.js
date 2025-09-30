@@ -80,7 +80,7 @@ export const products = [
     category: "Beds",
     price: 459,
     imageUrl: "beds-5.png",
-    rating: 5,
+    rating: 4,
   },
 
   // Sofas
