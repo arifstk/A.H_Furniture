@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { products } from './../../utils/Products';
 import ProductCard from './ProductCard';
 
 const Products = ({headline}) => {
   const categories = ["Chair", "Beds", "Sofa", "Lamp"];
+  const [selectedCategory, setSelectedCategory] = useState("Chair");
+  const filteredProducts = products.filter((product) => product.category === selectedCategory);
+  
+
 
   return (
     <div>
@@ -15,7 +19,10 @@ const Products = ({headline}) => {
           <div className='flex flex-col justify-center sm:flex-row items-center md:justify-between'>
             {
               categories.map((category) =>(
-                <button key={category} className={'py-1.5 sm:px-5 px-8 rounded-full hover:bg-gray-500 hover:text-white transitions-colors cursor-pointer'}>{category}</button>
+                <button onClick={() => {
+                  setSelectedCategory(category)
+                }}
+                key={category} className={`py-1.5 sm:px-5 px-8 rounded-full hover:bg-gray-400 hover:text-white transitions-colors cursor-pointer ${selectedCategory === category ? 'bg-gray-400 text-white':''}`}>{category}</button>
               ))
             }
           </div>
@@ -24,7 +31,7 @@ const Products = ({headline}) => {
         {/* Products Grid  */}
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6'>
           {
-            products.map((product, index) => (
+            filteredProducts.map((product, index) => ( //instead of products "filteredProducts"
               <ProductCard key={index} product={product} />
             ))
           }
