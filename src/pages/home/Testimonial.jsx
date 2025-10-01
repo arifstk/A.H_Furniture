@@ -1,10 +1,14 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import '../../App.css';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
+import 'swiper/css/navigation';
+import { Navigation, Pagination } from 'swiper/modules';
+import { reviews } from './../../utils/reviews';
+import Rating from './../../components/Rating';
 
 
 const Testimonial = () => {
@@ -23,32 +27,46 @@ const Testimonial = () => {
         pagination={{
           clickable: true,
         }}
+
+        navigation={true}
         breakpoints={{
           640: {
             slidesPerView: 2,
             spaceBetween: 20,
           },
           768: {
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 40,
           },
           1024: {
-            slidesPerView: 5,
+            slidesPerView: 3,
             spaceBetween: 50,
           },
         }}
-        modules={[Pagination]}
+        modules={[Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        {
+          reviews.map((review, index) => {
+            return (
+              <SwiperSlide key={index} className='bg-no-repeat bg-cover rounded-lg mb-8 md:mb-1' style={{backgroundImage: `url(${review.coverImg})`}}>
+                <div className='md:h-[500px] flex justify-center items-center mb-4'>
+                  <div className='mt-13 md:mb-5 bg-white border rounded-xl w-4/5 md:w-4/5 p-4 relative'>
+                    <img src={review.image} alt="" className='size-20 absolute -top-9 left-1/2 -translate-x-1/2 ring-2 ring-gray-500 object-cover rounded-full'/>
+                    <div className='mt-16 text-center'>
+                      <h3 className='text-lg font-semibold'>{review.name}</h3>
+                      <p className='mb-3'>Verified Customer</p>
+                      <p className='text-gray-500 mb-4'>{review.review}</p>
+                      <div className='w-full mx-auto mb-2 flex items-center justify-center text-center'>
+                        <Rating rating={review.rating}/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            )
+          })
+        }
       </Swiper>
     </section>
   );
