@@ -10,6 +10,8 @@ import Register from '../pages/Auth/Register';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { CartProvider } from '../context/CartContext';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MainLayout = () => {
   return (
@@ -29,7 +31,8 @@ const MainLayout = () => {
             <Route path='*' element={<Error />} />
           </Routes>
 
-          <Footer /> 
+          <Footer />
+          <ToastContainer position='top-right' autoClose={2000} />
         </BrowserRouter>
       </CartProvider>
   );

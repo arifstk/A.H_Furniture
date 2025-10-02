@@ -3,11 +3,16 @@ import { getImgUrl } from '../../utils/getImageURL';
 import Rating from '../../components/Rating';
 import { FaCartArrowDown } from "react-icons/fa";
 import { useCart } from './../../context/CartContext';
+import { toast } from 'react-toastify';
 
 const ProductCard = ({product}) => {
   const {addToCart} = useCart();
+  // const handleAddToCart = ()=> {
+  //   addToCart(product);
+  //   toast.success
+  // }
   return (
-    <div onClick={()=> addToCart(product)} className='cursor-pointer'>
+    <div className='cursor-pointer'>
       <div className='bg-[#fafafa]'>
         <img src={getImgUrl(`${product.imageUrl}`)} alt="" />
       </div>
@@ -21,6 +26,7 @@ const ProductCard = ({product}) => {
             onClick={(e) => {
               e.stopPropagation();
               addToCart(product);
+              toast.success(`${product.name} successfully added to your cart!`);
             }}
            className='bg-black/70 text-white p-2 rounded-full items-center cursor-pointer hover:bg-black'><FaCartArrowDown /></button>
         </div>
