@@ -13,6 +13,7 @@ import { CartProvider } from '../context/CartContext';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cart from './../pages/cart/Cart';
+import ProductDetail from './../detail/ProductDetail';
 
 const MainLayout = () => {
   return (
@@ -31,6 +32,7 @@ const MainLayout = () => {
             {/* if page not found  */}
             <Route path='*' element={<Error />} />
             <Route path='/cart' element={<Cart />} />
+            <Route path='/product/:id' element={<ProductDetail />} />
           </Routes>
 
           <Footer />
