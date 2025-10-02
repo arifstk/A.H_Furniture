@@ -45,9 +45,9 @@ const Footer = () => {
       </div>
 
         {/* Copyright section  */}
-      <div className='mt-10 container flex flex-col sm:flex-row sm:justify-between sm:items-center sm:text-center text-base'>
+      <div className='mt-10 container flex flex-col sm:flex-row sm:justify-between sm:items-center sm:text-center text-base text-[11px]'>
         <p>&copy; {new Date().getFullYear()} A.H Furniture</p>
-        <p>Developed by <span className='text-base text-green-600 font-light italic'>Arif Hossain</span></p>
+        <p>Developed by <span className='text-green-600 font-light italic'>Arif Hossain</span></p>
       </div>
     </footer>
   );
