@@ -12,6 +12,7 @@ import Footer from '../components/Footer';
 import { CartProvider } from '../context/CartContext';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Cart from './../pages/cart/Cart';
 
 const MainLayout = () => {
   return (
@@ -29,10 +30,11 @@ const MainLayout = () => {
 
             {/* if page not found  */}
             <Route path='*' element={<Error />} />
+            <Route path='/cart' element={<Cart />} />
           </Routes>
 
           <Footer />
-          <ToastContainer position='top-right' autoClose={2000} />
+          <ToastContainer position='top-right' autoClose={2500} />
         </BrowserRouter>
       </CartProvider>
   );

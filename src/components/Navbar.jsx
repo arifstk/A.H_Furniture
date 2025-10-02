@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { FaBagShopping, FaBars } from "react-icons/fa6";
 import { FaTimes } from "react-icons/fa";
 import { Link, NavLink } from 'react-router-dom';
-// import { Link, NavLink } from 'react-router-dom';
 import { useCart } from './../context/CartContext';
 
 const Navbar = () => {
@@ -50,10 +49,10 @@ const Navbar = () => {
         </div>
         
         {/* Shopping Cart icon  */}
-        <div className='hidden md:block cursor-pointer relative'>
+        <NavLink to="/cart" className='hidden md:block cursor-pointer relative'>
           <FaBagShopping className='text-xl' />
           <sup className='absolute top-0 -right-3 bg-red-400 text-white w-5 h-5 rounded-2xl flex items-center justify-center text-xs'>{cartItems.length}</sup>
-        </div>
+        </NavLink>
       </nav>
 
       {/* Mobile Menu Item  */}
