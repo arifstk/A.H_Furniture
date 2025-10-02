@@ -7,6 +7,7 @@ import { FaStar, FaCartPlus } from 'react-icons/fa';
 import { products } from './../utils/Products'; // ✅ import your product array
 import { useCart } from './../context/CartContext';
 import { getImgUrl } from '../utils/getImageURL';
+import bannerImg from '../assets/banner.png'
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -25,8 +26,10 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className=''>
-      <div className="max-w-6xl mx-auto px-4 py-30 grid md:grid-cols-2 gap-10">
+  //   <div className="bg-cover bg-center bg-no-repeat min-h-screen">
+    <div className='w-full min-h-screen relative bg-cover bg-center text-white flex justify-center items-center backdrop-blur-3xl' style = {{backgroundImage: `url(${bannerImg})`}}>
+
+      <div className=" mx-auto px-4 pt-30 pb-15 grid md:grid-cols-2 gap-10 text-white bg-black/50">
       {/* Product Image */}
       <div className="bg-white shadow-md rounded-lg overflow-hidden">
         <img
@@ -38,7 +41,7 @@ const ProductDetail = () => {
       {/* Product Info */}
       <div className="flex flex-col justify-between">
         <div>
-          <h4 className="text-sm text-gray-500 mb-1">{product.category}</h4>
+          <h4 className="text-sm mb-1">{product.category}</h4>
           <h2 className="text-3xl font-bold mb-3">{product.name}</h2>
 
           {/* Rating */}
@@ -51,16 +54,16 @@ const ProductDetail = () => {
                 }`}
               />
             ))}
-            <span className="ml-2 text-sm text-gray-600">({product.rating})</span>
+            <span className="ml-2 text-sm">({product.rating})</span>
           </div>
 
           {/* Price */}
-          <p className="text-2xl font-semibold text-gray-800 mb-4">
+          <p className="text-2xl font-semibold mb-4">
             <sup>$</sup>{product.price}
           </p>
 
           {/* Description (optional) */}
-          <p className="text-gray-700 leading-relaxed mb-6">
+          <p className="leading-relaxed mb-6">
             {/* This {product.category.toLowerCase()} is designed for comfort and style. Perfect for any modern space. */}
             {product.desc}
           </p>
@@ -69,7 +72,7 @@ const ProductDetail = () => {
         {/* Add to Cart Button */}
         <button 
           onClick={handleAddToCart}
-          className="bg-black text-white py-3 px-6 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-800 transition"
+          className="bg-black text-white py-3 px-6 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-800 transition cursor-pointer"
         >
           <FaCartPlus />
           Add to Cart

@@ -3,13 +3,14 @@ import React from 'react';
 import { FaTrashAlt, FaPlus, FaMinus } from "react-icons/fa";
 import { getImgUrl } from '../../utils/getImageURL';
 import { useCart } from './../../context/CartContext';
+import bannerImg from './../../assets/banner.png';
 
 const Cart = () => {
   const { cartItems, removeFromCart, updateQuantity } = useCart();
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
-    <div className='container max-w-screen-2xl mx-auto py-30 px-4 bg-gray-500 text-gray-600 min-h-screen'>
+    <div className='container max-w-screen-2xl mx-auto py-30 px-4 bg-gray-500 text-gray-600 min-h-screen' style = {{backgroundImage: `url(${bannerImg})`}}>
       <h2 className='text-2xl font-semibold mb-8 text-white border-b-1'>Your Cart</h2>
 
       {cartItems.length === 0 ? (
