@@ -2,10 +2,12 @@ import React from 'react';
 import { getImgUrl } from '../../utils/getImageURL';
 import Rating from '../../components/Rating';
 import { FaCartArrowDown } from "react-icons/fa";
+import { useCart } from './../../context/CartContext';
 
 const ProductCard = ({product}) => {
+  const {addToCart} = useCart();
   return (
-    <div>
+    <div onClick={()=> addToCart(product)} className='cursor-pointer'>
       <div className='bg-[#fafafa]'>
         <img src={getImgUrl(`${product.imageUrl}`)} alt="" />
       </div>
@@ -15,7 +17,12 @@ const ProductCard = ({product}) => {
         <Rating rating={product.rating}/>
         <div className='flex justify-between mt-1'>
           <p className='text-gray-700 font-bold text-lg'><sup>$</sup><span>{product.price}</span></p>
-          <button className='bg-black/70 text-white p-2 rounded-full items-center cursor-pointer hover:bg-black'><FaCartArrowDown /></button>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              addToCart(product);
+            }}
+           className='bg-black/70 text-white p-2 rounded-full items-center cursor-pointer hover:bg-black'><FaCartArrowDown /></button>
         </div>
       </div>
     </div>

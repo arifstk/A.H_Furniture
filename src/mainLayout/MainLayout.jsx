@@ -9,27 +9,29 @@ import Login from '../pages/Auth/Login';
 import Register from '../pages/Auth/Register';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { CartProvider } from '../context/CartContext';
 
 const MainLayout = () => {
   return (
-    <div>
-      <BrowserRouter>
-      <Navbar />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/shop' element={<Shop />} />
-          <Route path='/aboutUs' element={<AboutUs />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route pate='/login' element={<Login />} />
-          <Route pate='/register' element={<Register />} />
+      <CartProvider>
+        <BrowserRouter>
+          <Navbar />
 
-          {/* if page not found  */}
-          <Route path='*' element={<Error />} />
-        </Routes>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/shop' element={<Shop />} />
+            <Route path='/aboutUs' element={<AboutUs />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route pate='/login' element={<Login />} />
+            <Route pate='/register' element={<Register />} />
 
-        <Footer /> 
-    </BrowserRouter>
-    </div>
+            {/* if page not found  */}
+            <Route path='*' element={<Error />} />
+          </Routes>
+
+          <Footer /> 
+        </BrowserRouter>
+      </CartProvider>
   );
 };
 
